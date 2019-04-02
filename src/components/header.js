@@ -18,6 +18,7 @@ const Header = ({ siteTitle }) => (
         padding: `1rem`,
         display: `flex`,
         alignItems: `center`,
+        justifyContent: `center`,
       }}
     >
       <img src={Logo} alt="Docubyte logo" style={{

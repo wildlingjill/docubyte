@@ -21,6 +21,7 @@ const Article = ({title, urlLink, description, imageName}) => (
     >
       <img 
         src={imageName}
+        alt={imageName}
         style={{
           borderRadius: `10px`,
           height: `10rem`,

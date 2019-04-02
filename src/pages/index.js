@@ -80,6 +80,10 @@ export default class IndexPage extends React.Component {
         </div>
         <div style={{ display: `flex`, flexDirection: `column`, alignItems: `center` }}>
           <p style={{ marginBottom: `3rem` }}>Here you can find all the documentation you need to start using microb.io, for all your bacterial needs!</p>
+          <div className="project-aim" style={{ display: `flex` }}>
+            <h3 style={{ borderRight: `1px solid grey`, paddingRight: `1rem`, marginRight: `1rem` }}>Why use microb.io?</h3>
+            <p>Scientists today work long hours - juggling grant applications, paper submissions and repetitive experiments. Take some stress out of your life with microb.io, the cutting-edge microbiological sciences library. We want to help you help yourself, by taking the stress out of your research. Go home, spend time with your family, we got this!</p>
+          </div>
           <div className="article-container">
             {articles.map(({title, description, urlLink, imageName}, index) => 
               <Article key={index} title={title} description={description} urlLink={urlLink} imageName={imageName} />

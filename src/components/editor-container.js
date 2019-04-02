@@ -9,7 +9,7 @@ const EditorContainer = ({content, style}) => (
   <AceEditor
     style={{
       width: `50%`,
-      height: `100%`,
+      height: `auto`,
       borderRadius: `10px`,
       ...style
     }}
@@ -24,7 +24,6 @@ const EditorContainer = ({content, style}) => (
     showLineNumbers={true}
     tabSize={2}
     wrapEnabled={true}
-    maxLines={Infinity}
   />
 );
 

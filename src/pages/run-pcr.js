@@ -47,11 +47,13 @@ const program = cycleDesign({
       code: `
 import {runProgram, runGel, purifyFragment} from 'microb.io';
 
+let mySequence;
+
 runProgram(primers, program)
   .then((solution) =>
     runGel(solution.fragments))
   .then((bands) =>
-    purifyFragment(bands.fragment));
+    mySequence = purifyFragment(bands.fragment));
       `,
     },
   ];

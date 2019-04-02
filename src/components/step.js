@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import EditorContainer from "../components/editor-container"; 
 
 const Step = ({header, text, code}) => (
-  <div style={{ display: `flex`, alignItems: `center`, justifyContent: `space-around`, marginBottom: `5rem` }}>
+  <div style={{ display: `flex`, justifyContent: `space-around`, marginBottom: `5rem` }}>
     <div style={{
         width: `45%`,
         border: `1px solid lightgrey`,
-        padding: `1.3rem`,
+        padding: `1.5rem`,
         borderRadius: `10px`,
         textAlign: `justify`,
       }}

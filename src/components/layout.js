@@ -11,9 +11,9 @@ import PropTypes from "prop-types"
 import Header from "./header"
 import "./layout.css"
 
-const Layout = ({ children }) => (
+const Layout = ({ children, language }) => (
   <>
-    <Header siteTitle="docubyte" />
+    <Header siteTitle="docubyte" language={language} />
     <div
       style={{
         margin: `0 auto`,
@@ -29,6 +29,11 @@ const Layout = ({ children }) => (
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  language: PropTypes.string,
 }
+
+Layout.defaultProps = {
+  language: 'en',
+};
 
 export default Layout

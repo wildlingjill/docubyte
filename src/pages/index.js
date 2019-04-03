@@ -2,7 +2,10 @@ import React from "react";
 
 import Layout from "../components/layout";
 import Article from "../components/article";
+import Select from "../components/select";
+import {translations} from "../translations/translations";
 
+import MicrobioInit from "../images/microbio-init.svg";
 import CulturesImage from "../images/incubate-cultures.png";
 import SequencingImage from "../images/sequence-dna.png";
 import PCRImage from "../images/run-pcr.png";
@@ -21,6 +24,7 @@ export default class IndexPage extends React.Component {
     super(props);
 
     this.state = {
+      language: 'en',
       articles: [
         {
           title: 'Run a PCR',
@@ -45,49 +49,68 @@ export default class IndexPage extends React.Component {
     };
   }
 
+  versionChange = (v) => this.setState({appVersion: v});
+
+  languageChange = (lang) => this.setState({language: lang});
+
   render = () => {
-    const {articles} = this.state;
+    const {articles, language, appVersion} = this.state;
+
     return (
-      <Layout>
+      <Layout language={language}>
         <div style={{ display: `flex`, alignItems: `center`, justifyContent: `center`, marginBottom: `2rem` }}>
-          <h1 style={{ fontSize: `26px` }}>microb.io documentation {this.state.appVersion}</h1>
+          <h1 style={{ fontSize: `26px` }}>{translations[language].body.header} {appVersion}</h1>
           <div style={{ display: `flex`, alignItems: `center` }}>
-            <p style={{ marginLeft: `3.5rem`, marginRight: `0.5rem`, fontSize: `13px` }}>Version:</p>
-            <select defaultValue="v1.5.0" onChange={(event) => this.setState({appVersion: event.target.value})} style={{
-                height: `2rem`,
-                fontSize: `13px`,
-                width: `4.5rem`,
-              }}
-            >
-              <option value="v1.5.0">v1.5.0</option>
-              <option value="v1.4.0">v1.4.0</option>
-              <option value="v1.3.0">v1.3.0</option>
-            </select>
+            <p style={{ marginLeft: `3.5rem`, marginRight: `0.5rem`, fontSize: `13px` }}>{translations[language].body.version}:</p>
+            <Select
+              values={
+                [
+                  {label: 'v1.5.0', value: 'v1.5.0'},
+                  {label: 'v1.4.0', value: 'v1.4.0'},
+                  {label: 'v1.3.0', value: 'v1.3.0'},
+                ]
+              }
+              onChange={this.versionChange}
+            />
           </div>
           <div style={{ display: `flex`, alignItems: `center` }}>
-            <p style={{ marginLeft: `1rem`, marginRight: `0.5rem`, fontSize: `13px` }}>Language:</p>
-            <select defaultValue="English" style={{
-                height: `2rem`,
-                fontSize: `13px`,
-                width: `4.5rem`,
-              }}
-            >
-              <option value="English">English</option>
-              <option value="French">French</option>
-              <option value="Spanish">Spanish</option>
-            </select>
+            <p style={{ marginLeft: `1rem`, marginRight: `0.5rem`, fontSize: `13px` }}>{translations[language].body.language}:</p>
+            <Select
+              values={
+                [
+                  {label: 'English', value: 'en'},
+                  {label: 'Français', value: 'fr'},
+                  {label: 'Español', value: 'es'},
+                ]
+              }
+              onChange={this.languageChange}
+            />
           </div>
         </div>
         <div style={{ display: `flex`, flexDirection: `column`, alignItems: `center` }}>
-          <p style={{ marginBottom: `3rem` }}>Here you can find all the documentation you need to start using microb.io, for all your bacterial needs!</p>
-          <div className="project-aim" style={{ display: `flex` }}>
-            <h3 style={{ borderRight: `1px solid grey`, paddingRight: `1rem`, marginRight: `1rem` }}>Why use microb.io?</h3>
+          <p style={{ marginBottom: `3rem`, maxWidth: `85%`, textAlign: `center` }}>{translations[language].body.description}</p>
+          <div className="project-aim" style={{
+             display: `flex`,
+             width: `80%`,
+             marginBottom: `1rem`,
+             border: `3px solid #3973da`,
+             padding: `1rem`,
+             borderRadius: `10px`,
+             boxShadow: `rgba(0, 0, 0, 0.2) 0px 1px 3px`, 
+            }}
+            >
+            <h3 style={{ borderRight: `1px solid grey`, padding: `1rem 1rem 0 0`, marginRight: `1rem` }}>Why use microb.io?</h3>
             <p>Scientists today work long hours - juggling grant applications, paper submissions and repetitive experiments. Take some stress out of your life with microb.io, the cutting-edge microbiological sciences library. We want to help you help yourself, by taking the stress out of your research. Go home, spend time with your family, we got this!</p>
           </div>
+          <div className="example" style={{ marginBottom: `2rem` }}>
+            <h2 style={{ textAlign: `center`, marginBottom: `1rem` }}>Example</h2>
+            <img src={MicrobioInit} alt="Initialization code for microb.io" style={{ width: `40rem` }} />
+          </div>
           <div className="article-container">
-            {articles.map(({title, description, urlLink, imageName}, index) => 
-              <Article key={index} title={title} description={description} urlLink={urlLink} imageName={imageName} />
-            )}
+              <h2 style={{ textAlign: `center`, marginBottom: `1rem` }}>Articles</h2>
+              {articles.map(({title, description, urlLink, imageName}, index) => 
+                <Article key={index} title={title} description={description} urlLink={urlLink} imageName={imageName} />
+              )}
           </div>
         </div>
       </Layout>

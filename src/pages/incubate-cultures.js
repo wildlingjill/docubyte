@@ -27,7 +27,7 @@ incubateCulture({
 
   return (
     <Layout>
-      <h2>Incubating bacterial cultures with microb.io</h2>
+      <h2 style={{ margin: `3rem 0 2rem 0`, textAlign: `center` }}>Incubating bacterial cultures with microb.io</h2>
       <div className="code-container" style={{
         display: `flex`,
         border: `1px solid #d3d3d329`,

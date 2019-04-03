@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 
 const Article = ({title, urlLink, description, imageName}) => (
   <div className="article" style={{
-      marginBottom: `2rem`,
+      marginBottom: `3rem`,
       width: `45rem`,
       border: `1px solid #d3d3d329`,
       borderRadius: `10px`,

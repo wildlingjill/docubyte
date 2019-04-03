@@ -3,8 +3,9 @@ import PropTypes from "prop-types"
 import React from "react"
 
 import Logo from "../images/logo.png";
+import {translations} from "../translations/translations";
 
-const Header = ({ siteTitle }) => (
+const Header = ({ siteTitle, language }) => (
   <header
     style={{
       background: `#3a73da`,
@@ -58,7 +59,7 @@ const Header = ({ siteTitle }) => (
               textDecoration: `none`,
             }}
           >
-            <h3 style={{ margin: `0`, }}>Run a PCR</h3>
+            <h3 style={{ margin: `0`, }}>{translations[language].header.run_pcr}</h3>
           </Link>
         </li>
         <li style={{
@@ -75,7 +76,7 @@ const Header = ({ siteTitle }) => (
               textDecoration: `none`,
             }}
           >
-            <h3 style={{ margin: `0`, }}>Incubate cultures</h3>
+            <h3 style={{ margin: `0`, }}>{translations[language].header.incubate_cultures}</h3>
           </Link>
         </li>
         <li style={{
@@ -90,7 +91,7 @@ const Header = ({ siteTitle }) => (
               textDecoration: `none`,
             }}
           >
-            <h3 style={{ margin: `0`, }}>Sequence DNA</h3>
+            <h3 style={{ margin: `0`, }}>{translations[language].header.sequence}</h3>
           </Link>
         </li>
       </ul>
@@ -100,10 +101,12 @@ const Header = ({ siteTitle }) => (
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
+  language: PropTypes.string,
 }
 
 Header.defaultProps = {
-  siteTitle: ``,
+  siteTitle: '',
+  language: 'en',
 }
 
 export default Header

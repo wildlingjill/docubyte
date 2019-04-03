@@ -60,7 +60,7 @@ runProgram(primers, program)
 
   return (
     <Layout>
-      <h2 style={{ marginBottom: `3rem` }}>Running a PCR with microb.io</h2>
+      <h2 style={{ margin: `3rem 0 2rem 0`, textAlign: `center` }}>Running a PCR with microb.io</h2>
         {steps.map(({header, text, code}, index) => <Step header={header} key={index} text={text} code={code} />)}
     </Layout>
   )

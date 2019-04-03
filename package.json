@@ -14,11 +14,13 @@
     "gatsby-plugin-sharp": "^2.0.31",
     "gatsby-source-filesystem": "^2.0.28",
     "gatsby-transformer-sharp": "^2.1.17",
+    "jest": "^24.7.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-ace": "^6.4.0",
     "react-dom": "^16.8.5",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "react-testing-library": "^6.0.4"
   },
   "devDependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",

@@ -8,8 +8,9 @@ const Select = ({values, onChange}) => (
       width: `5rem`,
     }}
     onChange={(event) => onChange(event.target.value)}
+    data-testid="select-field"
   >
-    {values.map(({label, value}) => <option value={value}>{label}</option>)}
+    {values.map(({label, value}, index) => <option key={index} value={value}>{label}</option>)}
   </select>
 );
 

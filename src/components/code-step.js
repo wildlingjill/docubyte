@@ -1,10 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import EditorContainer from "../components/editor-container"; 
+import EditorContainer from "./editor-container"; 
 
-const Step = ({header, text, code}) => (
-  <div style={{ display: `flex`, justifyContent: `space-around`, marginBottom: `5rem` }}>
+/**
+ * Takes a header and text for the description, and value for the aceEditor 
+ */
+
+const CodeStep = ({header, text, code}) => (
+  <section style={{ display: `flex`, justifyContent: `space-around`, marginBottom: `5rem` }}>
     <div style={{
         width: `45%`,
         border: `1px solid lightgrey`,
@@ -17,19 +21,19 @@ const Step = ({header, text, code}) => (
       <p>{text}</p>
     </div>
     <EditorContainer content={code} style={{ marginLeft: `1rem` }} />
-  </div>
+  </section>
 );
 
-Step.propTypes = {
+CodeStep.propTypes = {
   header: PropTypes.string,
   text: PropTypes.string,
   code: PropTypes.string,
 };
 
-Step.defaultProps = {
+CodeStep.defaultProps = {
   header: '',
   text: '',
   code: '',
 };
 
-export default Step;
+export default CodeStep;

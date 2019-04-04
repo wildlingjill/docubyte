@@ -5,6 +5,10 @@ import AceEditor from 'react-ace';
 import 'brace/mode/javascript';
 import 'brace/theme/solarized_dark';
 
+/**
+ * Component to wrap aceEditor component, can pass in content and additional styles as props 
+ */
+
 const EditorContainer = ({content, style}) => (
   <AceEditor
     style={{
@@ -20,7 +24,6 @@ const EditorContainer = ({content, style}) => (
     fontSize={14}
     highlightActiveLine={true}
     value={content}
-    enableSnippets={false}
     showLineNumbers={true}
     tabSize={2}
     wrapEnabled={true}
@@ -28,8 +31,8 @@ const EditorContainer = ({content, style}) => (
 );
 
 EditorContainer.propTypes = {
-    content: PropTypes.string.isRequired,
-    style: PropTypes.object,
+  content: PropTypes.string.isRequired,
+  style: PropTypes.object,
 };
 
 EditorContainer.defaultProps = {

@@ -2,8 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 
+/**
+ * Article component used on the front page, takes an image and a link to the route, along with a title and description
+ */
+
 const Article = ({title, urlLink, description, imageName}) => (
-  <div className="article" style={{
+  <article style={{
       marginBottom: `3rem`,
       width: `45rem`,
       border: `1px solid #d3d3d329`,
@@ -29,15 +33,15 @@ const Article = ({title, urlLink, description, imageName}) => (
           marginRight: `1rem`,
         }} 
       />
-      <div style={{
+      <section style={{
           width: `35rem`,
         }}
       >
         <h3>{title}</h3>
         <p>{description}</p>
-      </div>
+      </section>
     </Link>
-  </div>
+  </article>
 );
 
 Article.propTypes = {

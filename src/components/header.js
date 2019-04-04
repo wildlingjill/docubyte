@@ -5,6 +5,12 @@ import React from "react"
 import Logo from "../images/logo.png";
 import {translations} from "../translations/translations";
 
+/**
+ * Header for the site, with the title and language prop
+ * Contains a navbar, language of the nav menu changes with the language prop
+ * Pulls in translations from the translations object, based on language prop
+ */
+
 const Header = ({ siteTitle, language }) => (
   <header
     style={{
@@ -12,7 +18,7 @@ const Header = ({ siteTitle, language }) => (
       marginBottom: `1.45rem`,
     }}
   >
-    <div
+    <section
       style={{
         margin: `0 auto`,
         maxWidth: 960,
@@ -40,62 +46,71 @@ const Header = ({ siteTitle, language }) => (
           {siteTitle}
         </Link>
       </h1>
-      <ul style={{
-          listStyle: `none`,
-          marginBottom: `0`,
-          marginTop: `0.5rem`,
-        }}  
-      >
-        <li style={{
-            display: `inline-block`,
-            paddingRight: `0.75rem`,
-            borderRight: `1px solid white`,
-          }}
+
+      <nav>
+        <ul style={{
+            listStyle: `none`,
+            marginBottom: `0`,
+            marginTop: `0.5rem`,
+          }}  
         >
-          <Link
-            to="/run-pcr/"
-            style={{
-              color: `white`,
-              textDecoration: `none`,
+
+          <li style={{
+              display: `inline-block`,
+              paddingRight: `0.75rem`,
+              borderRight: `1px solid white`,
             }}
           >
-            <h3 style={{ margin: `0`, }}>{translations[language].header.run_pcr}</h3>
-          </Link>
-        </li>
-        <li style={{
-            display: `inline-block`,
-            paddingRight: `0.75rem`,
-            paddingLeft: `0.75rem`,
-            borderRight: `1px solid white`,
-          }}
-        >
-          <Link
-            to="/incubate-cultures/"
-            style={{
-              color: `white`,
-              textDecoration: `none`,
+            <Link
+              to="/run-pcr/"
+              style={{
+                color: `white`,
+                textDecoration: `none`,
+              }}
+            >
+              <h3 style={{ margin: `0`, }}>{translations[language].header.run_pcr}</h3>
+            </Link>
+          </li>
+
+          <li style={{
+              display: `inline-block`,
+              paddingRight: `0.75rem`,
+              paddingLeft: `0.75rem`,
+              borderRight: `1px solid white`,
             }}
           >
-            <h3 style={{ margin: `0`, }}>{translations[language].header.incubate_cultures}</h3>
-          </Link>
-        </li>
-        <li style={{
-            display: `inline-block`,
-            paddingLeft: `0.75rem`,
-          }}
-        >
-          <Link
-            to="/sequencing/"
-            style={{
-              color: `white`,
-              textDecoration: `none`,
+            <Link
+              to="/incubate-cultures/"
+              style={{
+                color: `white`,
+                textDecoration: `none`,
+              }}
+            >
+              <h3 style={{ margin: `0`, }}>{translations[language].header.incubate_cultures}</h3>
+            </Link>
+          </li>
+
+          <li style={{
+              display: `inline-block`,
+              paddingLeft: `0.75rem`,
             }}
           >
-            <h3 style={{ margin: `0`, }}>{translations[language].header.sequence}</h3>
-          </Link>
-        </li>
-      </ul>
-    </div>
+            <Link
+              to="/sequencing/"
+              style={{
+                color: `white`,
+                textDecoration: `none`,
+              }}
+            >
+              <h3 style={{ margin: `0`, }}>{translations[language].header.sequence}</h3>
+            </Link>
+          </li>
+
+        </ul>
+
+      </nav>
+      
+    </section>
   </header>
 )
 
